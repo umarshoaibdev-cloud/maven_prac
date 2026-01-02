@@ -8,4 +8,8 @@ node('built-in')
     {
         sh 'mvn package'
     }
+    stage('Deploy')
+    {
+        sh 'scp /var/lib/jenkins/workspace/MultiplePipelines/webapp/target/webapp.war ubuntu@172.31.7.54:/var/lib/tomcat10/webapps/testapp.war'
+    }
 }
