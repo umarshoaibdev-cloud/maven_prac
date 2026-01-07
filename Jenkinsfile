@@ -1,14 +1,21 @@
 pipeline
 {
- agent any
- stages
- {
-   stage("Download")
-   {
-	steps
+	agent any
+	stages
 	{
-		git "https://github.com/umarshoaibdev-cloud/maven_prac.git"
+		stage("Download")
+   		{
+			steps
+			{
+				git "https://github.com/umarshoaibdev-cloud/maven_prac.git"
+			}
+		}
+		stage("Build")
+	 	{
+			steps
+		 	{
+			 	sh 'mnv package'
+			}
+		}
 	}
-   }
- }
 }
