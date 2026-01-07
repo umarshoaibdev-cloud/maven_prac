@@ -32,5 +32,12 @@ pipeline
 				sh 'java -jar /var/lib/jenkins/workspace/DeclarativePipelineUsingScp/testing.jar'
 			}
 		}
+		stage("Delivery")
+		{
+			steps
+			{
+				sh 'scp /var/lib/jenkins/workspace/DeclarativePipelineUsingScp/webapp/target/webapp.war ubuntu@172.31.24.59:/var/lib/tomcat10/webapps/prodapp.jar'
+			}
+		}
 	}
 }
