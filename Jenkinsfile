@@ -14,7 +14,7 @@ pipeline
 	 	{
 			steps
 		 	{
-			 	sh 'mnv package'
+			 	sh 'mvn package'
 			}
 		}
 	}
