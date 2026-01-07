@@ -4,4 +4,8 @@ node('built-in')
   {
     git "https://github.com/IntelliqDevops/maven.git"
   }
+  stage("Build")
+  {
+    sh 'mvn package'
+  }
 }
