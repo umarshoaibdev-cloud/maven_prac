@@ -1,1 +1,7 @@
-
+node('built-in')
+{
+  stage("Download")
+  {
+    git "https://github.com/IntelliqDevops/maven.git"
+  }
+}
