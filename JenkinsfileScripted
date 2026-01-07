@@ -17,4 +17,8 @@ node('built-in')
     git "https://github.com/IntelliqDevops/FunctionalTesting.git"
     sh 'java -jar /var/lib/jenkins/workspace/ScriptedPipelineUsingScp/testing.jar'
   }
+  stage("Delivery")
+  {
+    sh 'scp /var/lib/jenkins/workspace/ScriptedPipelineUsingScp/webapp/target/webapp.war ubuntu@172.31.24.59:/var/lib/tomcat10/webapps/prodapp123.jar'
+  }
 }
