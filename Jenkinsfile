@@ -10,15 +10,15 @@ node('built-in')
     }
     stage('Deploy')
     {
-        sh 'scp /var/lib/jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.11.140:/var/lib/tomcat10/webapps/testapp.war'
+        sh 'scp /var/lib/jenkins/workspace/MultiplePipelines/webapp/target/webapp.war ubuntu@172.31.7.54:/var/lib/tomcat10/webapps/testapp.war'
     }
     stage('Test')
     {
         git 'https://github.com/IntelliqDevops/FunctionalTesting.git'
-        sh 'java -jar /var/lib/jenkins/workspace/ScriptedPipeline/testing.jar'
+        sh 'java -jar /var/lib/jenkins/workspace/MultiplePipelines/testing.jar'
     }
    stage('Delivery')
     {
-        sh 'scp /var/lib/jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.11.220:/var/lib/tomcat10/webapps/prodapp.war'
+        sh 'scp /var/lib/jenkins/workspace/MultiplePipelines/webapp/target/webapp.war ubuntu@172.31.14.227:/var/lib/tomcat10/webapps/prodapp.war'
     }
 }
