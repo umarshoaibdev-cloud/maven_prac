@@ -10,7 +10,7 @@ pipeline
          git 'https://github.com/IntelliqDevops/maven.git'
        }
      }
-     stage('Build')
+     stage('Build1')
      {
       steps
        {
