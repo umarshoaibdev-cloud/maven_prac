@@ -1,15 +1,28 @@
-node('built-in')
+pipeline
 {
-    stage('Download')
+    agent any
+    stages
     {
-        git 'https://github.com/umarshoaibdev-cloud/maven.git'
-    }
-    stage('Build')
-    {
+      stage('Download')
+     {
+       steps
+       {
+         git 'https://github.com/IntelliqDevops/maven.git'
+       }
+     }
+     stage('Build')
+     {
+      steps
+       {
         sh 'mvn package'
-    }
-    stage('Deploy')
-    {
-        sh 'scp /var/lib/jenkins/workspace/MultiplePipelines/webapp/target/webapp.war ubuntu@172.31.7.54:/var/lib/tomcat10/webapps/testapp.war'
-    }
+       }
+      }
+      stage('Deploy')
+      {
+       steps
+       {
+        sh "scp /var/lib/jenkins/workspace/MultiBranchPipeline/webapp/target/webapp.war ubuntu@172.31.27.73:/var/lib/tomcat10/webapps/testapp.jar"
+       }
+      }
+   }
 }
